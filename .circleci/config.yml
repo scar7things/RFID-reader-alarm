@@ -10,11 +10,6 @@ jobs:
       PYTHONPATH=./src
     steps:
       - checkout
-      - run:
-            command: |
-              pip freeze > requirements.txt
-      - store_artifacts:
-            paths:
       - .coverage
       - python/load-cache
       - python/install-deps
@@ -60,6 +55,14 @@ jobs:
 workflows:
   main:
     jobs:
+    - build:
+      steps:
+        - run:
+            command: |
+              pip freeze > requirements.txt
+      - store_artifacts:
+            paths:
+            - .coverage
       - build-and-test:
           filters:
             tags:
