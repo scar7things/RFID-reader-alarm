@@ -14,8 +14,9 @@ jobs:
           persist_to_workspace:
           root: ~/src
           paths:          
-    docker:
-      - image: cimg/python:3.10.2.
+    test:
+       docker:
+          - image: cimg/python:3.10.2.
 workflows:
  test_my_app:
   jops: 
