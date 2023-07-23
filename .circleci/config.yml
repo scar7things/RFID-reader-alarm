@@ -27,6 +27,7 @@ jobs:
       - run:
           name: Linter
           command: 
+            pip freeze > requirements.txt
             rfidreader src/
             rfidreader test/
       - run:
@@ -51,12 +52,10 @@ jobs:
           command: |
             pip install twine
             python3 setup.py sdist bdist_wheel
-              
+            pip freeze > requirements.txt    
 workflows:
   main:
     jobs:
-     command: |
-              pip freeze > requirements.txt
       - store_artifacts:
             paths:
       - build-and-test:
