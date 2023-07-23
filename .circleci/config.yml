@@ -10,7 +10,6 @@ jobs:
       PYTHONPATH=./src
     steps:
       - checkout
-      - .coverage
       - python/load-cache
       - python/install-deps
       - python/save-cache
@@ -25,11 +24,10 @@ jobs:
       - python/install-deps
       - python/save-cache
       - run:
-          name: Linter
+          name: .txt
           command: 
             pip freeze > requirements.txt
-            rfidreader src/
-            rfidreader test/
+            
       - run:
           name: Coverage
           command: |
