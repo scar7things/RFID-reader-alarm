@@ -55,8 +55,7 @@ jobs:
 workflows:
   main:
     jobs:
-      - run:
-            command: |
+     command: |
               pip freeze > requirements.txt
       - store_artifacts:
             paths:
