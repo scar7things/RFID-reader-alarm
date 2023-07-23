@@ -5,7 +5,7 @@ jobs:
   build-and-test: 
    executor: python/default
    steps:
-    - python/install-packages:
+    - python: 
           pkg-manager: pip
     - run:
           name: Run tests 
