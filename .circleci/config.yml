@@ -25,9 +25,9 @@ jobs:
       - python/save-cache
       - run:
           name: Linter
-          command: |
-            flake8 src/
-            flake8 test/
+          command: 
+            rfidreader src/
+            rfidreader test/
       - run:
           name: Coverage
           command: |
@@ -50,7 +50,7 @@ jobs:
           command: |
             pip install twine
             python3 setup.py sdist bdist_wheel
-            python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*  
+              
 workflows:
   main:
     jobs:
