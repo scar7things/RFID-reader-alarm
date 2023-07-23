@@ -45,3 +45,13 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
+ - restore_cache:
+      keys:
+        - v1-dependencies-{{ checksum "src/requirements.txt" }}
+        # fallback to using the latest cache if no exact match is found
+        - v1-dependencies-
+
+  - save_cache:
+      paths:
+        - ./venv
+      key: v1-dependencies-{{ checksum "src/requirements.txt" }}
