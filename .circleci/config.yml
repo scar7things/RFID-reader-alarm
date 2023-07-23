@@ -56,8 +56,6 @@ jobs:
 workflows:
   main:
     jobs:
-      - store_artifacts:
-            paths:
       - build-and-test:
          filters:
             tags:
