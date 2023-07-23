@@ -55,16 +55,13 @@ jobs:
 workflows:
   main:
     jobs:
-    - build:
-      steps:
-        - run:
+      - run:
             command: |
               pip freeze > requirements.txt
       - store_artifacts:
             paths:
-            - .coverage
       - build-and-test:
-          filters:
+         filters:
             tags:
               only: /.*/
       - lint-and-coverage:
