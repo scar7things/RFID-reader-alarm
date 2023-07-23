@@ -10,14 +10,12 @@ jobs:
       PYTHONPATH=./src
     steps:
       - checkout
-       - setup-python:
-            python-version: 3.8
-          - run:
+      - run:
             command: |
               pip freeze > requirements.txt
-          - store_artifacts:
+      - store_artifacts:
             paths:
-              - .coverage
+      - .coverage
       - python/load-cache
       - python/install-deps
       - python/save-cache
